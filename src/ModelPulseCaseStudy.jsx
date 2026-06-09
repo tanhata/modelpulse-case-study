@@ -105,7 +105,7 @@ const ModelPulseCaseStudy = () => {
       { area: 'Cognitive load', solution: 'Progressive disclosure hides advanced metrics by default. Plain-English explanations for all ML jargon. Help icons with contextual tooltips throughout.', testing: 'Junior engineer testing showed 72% self-serve resolution vs 20% baseline.' }
     ],
     tradeoffs: [
-      { decision: 'Single platform vs best-of-breed', wantedTo: 'Keep existing tools and add orchestration layer', reality: 'Unified platform required to eliminate context switching. Convinced stakeholders with time-motion study showing 40% of incident time lost to tool switching.', wouldChange: 'Would push harder for this earlier. Lost 3 weeks debating integration vs replacement.' },
+      { decision: 'Single platform vs best-of-breed', wantedTo: 'Keep existing tools and add orchestration layer', reality: 'Unified platform required to eliminate context switching. The case was made with a time-motion study showing 40% of incident time lost to tool switching.', wouldChange: 'Would push harder for this earlier. Lost 3 weeks weighing integration vs replacement.' },
       { decision: 'Limited chart types at launch', wantedTo: 'Support all visualization types engineers might want', reality: 'Shipped with 6 core chart types covering 85% of use cases. Custom charts deferred to v2 roadmap.', wouldChange: 'Same decision. Focus was right. Histogram and heatmap shipped in week 6.' },
       { decision: 'No mobile support', wantedTo: 'Responsive design from start', reality: 'Timeline constraints required desktop-only. ML investigation workflow rarely happens on mobile. Technical debt acknowledged.', wouldChange: 'Would design mobile-friendly architecture even without building mobile views.' },
       { decision: 'AI suggestions delayed to V4', wantedTo: 'Ship AI-powered root cause analysis in V1', reality: 'Needed V3\'s progressive disclosure to establish trust first. Users rejected AI suggestions without understanding how they were derived.', wouldChange: 'Correct sequencing. Building trust before automation was essential.' }
@@ -206,9 +206,9 @@ const ModelPulseCaseStudy = () => {
             </P>
             <div style={{ display: 'flex', gap: '24px', marginTop: '32px', fontSize: '14px' }}>
               {[
-                { label: 'Role', value: 'Lead Product Designer' },
+                { label: 'Role', value: 'Product Designer' },
                 { label: 'Timeline', value: '8 months' },
-                { label: 'Team', value: '1 PM, 3 Eng, 1 DS' }
+                { label: 'Scope', value: 'End-to-end design' }
               ].map((item, i) => (
                 <div key={i}>
                   <div style={{ fontSize: '11px', color: colors.textDim, marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{item.label}</div>
@@ -852,11 +852,11 @@ const ModelPulseCaseStudy = () => {
         </div>
       </Section>
 
-      {/* My Specific Contributions */}
+      {/* What I Did */}
       <Section bg={colors.bgCard}>
-        <SectionLabel>My Role</SectionLabel>
-        <SectionTitle>What I specifically did</SectionTitle>
-        <P>On a team of five, the following outlines my specific ownership versus contribution areas.</P>
+        <SectionLabel>The Work</SectionLabel>
+        <SectionTitle>What I did</SectionTitle>
+        <P>The following outlines the work across research, strategy, design, and execution.</P>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginTop: '24px' }}>
           {defined.myContributions.map((c, i) => (
@@ -921,28 +921,9 @@ const ModelPulseCaseStudy = () => {
       {/* The Before State */}
       <Section wide bg={colors.bgCard}>
         <SubsectionTitle style={{ marginTop: 0 }}>What users were dealing with</SubsectionTitle>
-        <P>The "stack" of monitoring tools that ML teams cobbled together from infrastructure-first products.</P>
+        <P>ML teams cobbled together a fragmented stack of infrastructure-first products, none of which understood models, drift, or training convergence. Every investigation meant jumping across disconnected tools and correlating results by hand.</P>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginTop: '24px' }}>
-          {[
-            { name: 'DataDog', purpose: 'Infrastructure metrics', gap: 'No ML-specific concepts' },
-            { name: 'Weights & Biases', purpose: 'Experiment tracking', gap: 'No production monitoring' },
-            { name: 'Grafana', purpose: 'Custom dashboards', gap: 'Manual correlation' },
-            { name: 'PagerDuty', purpose: 'Alerting', gap: 'Generic, no ML context' },
-            { name: 'Slack', purpose: 'War room coordination', gap: 'Lost institutional knowledge' },
-            { name: 'Jupyter', purpose: 'Ad-hoc investigation', gap: 'Not real-time' },
-            { name: 'Spreadsheets', purpose: 'Manual correlation', gap: 'Breaks every incident' },
-            { name: 'Custom scripts', purpose: 'Drift detection', gap: 'Unmaintainable' }
-          ].map((tool, i) => (
-            <div key={i} style={{ padding: '16px', background: colors.bgElevated, borderRadius: '10px', border: `1px solid ${colors.border}` }}>
-              <div style={{ fontSize: '14px', fontWeight: 600, color: colors.text, marginBottom: '8px' }}>{tool.name}</div>
-              <div style={{ fontSize: '12px', color: colors.textMuted, marginBottom: '8px' }}>{tool.purpose}</div>
-              <div style={{ fontSize: '11px', color: colors.red, background: colors.red + '15', padding: '4px 8px', borderRadius: '4px' }}>Gap: {tool.gap}</div>
-            </div>
-          ))}
-        </div>
-        
-        <div style={{ marginTop: '32px', padding: '20px', background: colors.bgElevated, borderRadius: '12px', border: `1px solid ${colors.border}` }}>
+        <div style={{ marginTop: '24px', padding: '20px', background: colors.bgElevated, borderRadius: '12px', border: `1px solid ${colors.border}` }}>
           <div style={{ fontSize: '14px', color: colors.textMuted, lineHeight: 1.7, fontStyle: 'italic' }}>
             "Every time there's an incident, I have 8 browser tabs open, I'm SSH'd into three different servers, 
             I've got a Jupyter notebook running, and I'm still copying numbers into a spreadsheet to correlate 
@@ -1335,37 +1316,6 @@ const ModelPulseCaseStudy = () => {
               <div style={{ padding: '10px 12px', background: colors.bgElevated, borderRadius: '8px', fontSize: '12px' }}>
                 <span style={{ fontWeight: 600, color: colors.textMuted }}>Testing: </span>
                 <span style={{ color: colors.textDim }}>{a.testing}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Divider />
-
-      {/* Tradeoffs */}
-      <Section>
-        <SectionLabel>Tradeoffs</SectionLabel>
-        <SectionTitle>What I fought for and lost</SectionTitle>
-        <P>Not every proposal was implemented. The following documents constraints, compromises, and retrospective analysis.</P>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '24px' }}>
-          {defined.tradeoffs.map((t, i) => (
-            <div key={i} style={{ padding: '20px', background: colors.bgCard, borderRadius: '12px', border: `1px solid ${colors.border}` }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr 1fr', gap: '24px' }}>
-                <div>
-                  <div style={{ fontSize: '15px', fontWeight: 600, color: colors.text, marginBottom: '8px' }}>{t.decision}</div>
-                </div>
-                <div>
-                  <div style={{ fontSize: '11px', fontWeight: 600, color: colors.textDim, marginBottom: '6px', textTransform: 'uppercase' }}>What I wanted</div>
-                  <div style={{ fontSize: '13px', color: colors.textMuted, lineHeight: 1.6 }}>{t.wantedTo}</div>
-                  <div style={{ fontSize: '11px', fontWeight: 600, color: colors.textDim, marginBottom: '6px', marginTop: '12px', textTransform: 'uppercase' }}>What shipped</div>
-                  <div style={{ fontSize: '13px', color: colors.textMuted, lineHeight: 1.6 }}>{t.reality}</div>
-                </div>
-                <div>
-                  <div style={{ fontSize: '11px', fontWeight: 600, color: colors.orange, marginBottom: '6px', textTransform: 'uppercase' }}>What I'd change</div>
-                  <div style={{ fontSize: '13px', color: colors.textMuted, lineHeight: 1.6 }}>{t.wouldChange}</div>
-                </div>
               </div>
             </div>
           ))}
